@@ -10,19 +10,20 @@ import WebKit
 
 struct ContentView: View {
     @State private var showWebView = false
-    private let urlString: String = "https://www.google.com"
+    private let urlString: String = "https://mhsmapproject.cocoazi.repl.co"
     
     var body: some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 13) {
             // Normal WebView
-            WebView(url: URL(string: urlString)!).frame(height: 500.0)
+            WebView(url: URL(string: urlString)!).frame(height: 910.0)
+                .frame(width: 382)
                 .cornerRadius(10)
-                .shadow(color: .black.opacity(0.3), radius: 20.0, x: 5, y: 5)
+                .shadow(color: .yellow, radius: 10.0, x: 5, y: 5)
                 
             
             // Create a link that opens in a new window
             Link(destination: URL(string: urlString)!, label: {
-                Text("Open Link")
+                Text("Open in new window")
                     .foregroundColor(.blue)
             })
             
@@ -30,7 +31,7 @@ struct ContentView: View {
             Button {
                 showWebView.toggle()
             } label: {
-                Text("Open Link 2")
+                Text("Open in a sheet")
             }
             .sheet(isPresented: $showWebView) {
                 WebView(url: URL(string: urlString)!)

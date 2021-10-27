@@ -13,5 +13,7 @@ struct WebViewTutorialApp: App {
         WindowGroup {
             ContentView()
         }
+        
+        
     }
 }
